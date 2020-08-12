@@ -1,0 +1,27 @@
+
+
+<div class="card text-center">
+  <div class="card-header">
+    Discover a new restaurant
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @restaurant.name %></h5>
+    <p class="card-text"><%= @restaurant.address%></p>
+    <p class="card-text"><%= @restaurant.phone_number %></p>
+    <%= link_to "Back to restaurants", restaurants_path, class: "btn btn-info" %>
+  </div>
+  <div class="card-footer text-muted">
+    <p> last review 2 days ago </p>
+    <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-success" %>
+  </div>
+  <div>
+    <ul>
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item"> <%= review.content %> Note <%= review.rating %>/5 </li>
+      <% end %>
+    </ul>
+
+
+  </div>
+</div>
